@@ -1,0 +1,35 @@
+<div class="content">
+    <h1>Ajouter utilisateurs</h1>
+    <form [formGroup]="userForm" (ngSubmit)="submit()">
+        <label for="username">Pseudo</label>
+        <input type="text" id="username" formControlName="username"
+               [class.is-invalid]="isInvalid(userForm.controls['username'])">
+          <strong *ngIf="isInvalid(userForm.controls['username'])" class="text-danger" style="color: red;">
+              <ng-container *ngIf="userForm.controls['username'].hasError('required')">
+                Veuillez entrer un username
+              </ng-container>
+          </strong>
+
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" formControlName="password"
+               [class.is-invalid]="isInvalid(userForm.controls['password'])">
+      <strong *ngIf="isInvalid(userForm.controls['password'])" class="text-danger" style="color: red;">
+              <ng-container *ngIf="userForm.controls['password'].hasError('required')">
+                Veuillez entrer un mot de passe
+              </ng-container>
+          </strong>
+
+        <label for="confirmPassword">Confirmer mot de passe</label>
+        <input type="password" id="confirmPassword" formControlName="confirmPassword">
+        <strong *ngIf="isInvalid(userForm.controls['confirmPassword'])" class="text-danger" style="color: red;">
+              <ng-container *ngIf="userForm.controls['confirmPassword'].hasError('required')">
+                Veuillez confirmer le mot de passe
+              </ng-container>
+          </strong>
+
+        <div>
+            <button type="button" class="button cancel">Annuler</button>
+            <button type="submit" class="button save">Enregistrer</button>
+        </div>
+    </form>
+</div>

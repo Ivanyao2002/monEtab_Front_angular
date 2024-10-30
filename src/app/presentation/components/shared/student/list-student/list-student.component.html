@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="content">
+    <h1>Élèves (2)</h1>
+    <button class="new-student"><a routerLink="/add-student">Nouveau élève</a></button>
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Genre</th>
+                <th>Classe</th>
+                <th>Matricule</th>
+                <th>Âge</th>
+                <th>Téléphone</th>
+                <th>Ville</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>KOFFI</td>
+                <td>George</td>
+                <td>M</td>
+                <td>Tle</td>
+                <td>GDJ7DGDD</td>
+                <td>25</td>
+                <td>0123456789</td>
+                <td>Bonoua</td>
+                <td>
+                    <button class="button modify">
+                      <a routerLink="/edit-student">Modifier</a>
+                    </button>
+                    <button class="button delete" (click)="showModal()">Supprimer</button>
+                </td>
+            </tr>
+            <tr>
+                <td>KONÉ</td>
+                <td>Sali</td>
+                <td>F</td>
+                <td>2nd</td>
+                <td>GDJ7DGDD</td>
+                <td>22</td>
+                <td>0123456789</td>
+                <td>Abidjan</td>
+                <td>
+                    <button class="button modify">
+                      <a routerLink="/edit-student">Modifier</a>
+                    </button>
+                    <button class="button delete" (click)="showModal()">Supprimer</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div *ngIf="show" class="modal" id="modal">
+        <div class="modal-content">
+            <h2>ATTENTION !!</h2>
+            <p>Voulez-vous vraiment supprimer cet élève ?</p>
+            <button (click)="closeModal()">Non</button>
+            <button (click)="confirmDelete()">Oui</button>
+        </div>
+    </div>
+</div>
+
+</div>

@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="content">
+    <h1>Ajouter un élève</h1>
+    <form [formGroup]="studentForm" (ngSubmit)="submit()">
+
+        <div class="row">
+            <div class="col">
+                <label for="lastname"></label>
+                <input type="text" id="lastname" placeholder="Nom" formControlName="lastname"
+               [class.is-invalid]="isInvalid(studentForm.controls['lastname'])">
+        <strong *ngIf="isInvalid(studentForm.controls['lastname'])" class="text-danger" style="color: red;">
+              <ng-container *ngIf="studentForm.controls['lastname'].hasError('required')">
+                Ce champ est requis
+              </ng-container>
+          </strong>
+
+                <label for="firstname"></label>
+                <input type="text" id="firstname" required placeholder="Prénom" formControlName="firstname"
+               [class.is-invalid]="isInvalid(studentForm.controls['firstname'])">
+        <strong *ngIf="isInvalid(studentForm.controls['firstname'])" class="text-danger" style="color: red;">
+              <ng-container *ngIf="studentForm.controls['firstname'].hasError('required')">
+                Ce champ est requis
+              </ng-container>
+          </strong>
+
+                <div class="gender" style="display: flex;">
+                    <label><input type="radio" name="gender" value="Homme" required
+                    formControlName="gender"
+               [class.is-invalid]="isInvalid(studentForm.controls['gender'])"> Homme</label>
+                    <label><input type="radio" name="gender" value="Femme" required formControlName="gender"
+               [class.is-invalid]="isInvalid(studentForm.controls['gender'])"> Femme</label>
+                  <strong *ngIf="isInvalid(studentForm.controls['gender'])" class="text-danger" style="color: red;">
+              <ng-container *ngIf="studentForm.controls['gender'].hasError('required')">
+                Ce champ est requis
+              </ng-container>
+          </strong>
+                </div>
+
+                <label for="matricule"></label>
+                <input type="text" id="matricule" required placeholder="Matricule" formControlName="matricule"
+               [class.is-invalid]="isInvalid(studentForm.controls['matricule'])">
+                      <strong *ngIf="isInvalid(studentForm.controls['matricule'])" class="text-danger" style="color: red;">
+              <ng-container *ngIf="studentForm.controls['matricule'].hasError('required')">
+                Ce champ est requis
+              </ng-container>
+          </strong>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+
+                <label for="birthday">Date de naissance</label>
+                <input type="date" id="birthday" required formControlName="birthday"
+               [class.is-invalid]="isInvalid(studentForm.controls['birthday'])">
+                      <strong *ngIf="isInvalid(studentForm.controls['birthday'])" class="text-danger" style="color: red;">
+              <ng-container *ngIf="studentForm.controls['birthday'].hasError('required')">
+                Ce champ est requis
+              </ng-container>
+          </strong>
+
+                <label for="phone_number"></label>
+                <input type="text" id="phone_number" required placeholder="Téléphone_number" formControlName="phone_number"
+               [class.is-invalid]="isInvalid(studentForm.controls['phone_number'])">
+                      <strong *ngIf="isInvalid(studentForm.controls['phone_number'])" class="text-danger" style="color: red;">
+              <ng-container *ngIf="studentForm.controls['phone_number'].hasError('required')">
+                Ce champ est requis
+              </ng-container>
+          </strong>
+
+              <label for="phone_number_father"></label>
+                <input type="text" id="phone_number_father" required placeholder="Téléphone du père" formControlName="phone_number_father"
+               [class.is-invalid]="isInvalid(studentForm.controls['phone_number_father'])">
+                      <strong *ngIf="isInvalid(studentForm.controls['phone_number_father'])" class="text-danger" style="color: red;">
+              <ng-container *ngIf="studentForm.controls['phone_number_father'].hasError('required')">
+                Ce champ est requis
+              </ng-container>
+          </strong>
+
+                <label for="city"></label>
+                <input type="text" id="city" required placeholder="Ville" formControlName="city"
+               [class.is-invalid]="isInvalid(studentForm.controls['city'])">
+                      <strong *ngIf="isInvalid(studentForm.controls['city'])" class="text-danger" style="color: red;">
+              <ng-container *ngIf="studentForm.controls['city'].hasError('required')">
+                Ce champ est requis
+              </ng-container>
+          </strong>
+              <label for="url_picture"></label>
+                    <input type="file" id="url_picture" required placeholder="Image" formControlName="url_picture"
+               [class.is-invalid]="isInvalid(studentForm.controls['url_picture'])">
+                      <strong *ngIf="isInvalid(studentForm.controls['url_picture'])" class="text-danger" style="color: red;">
+              <ng-container *ngIf="studentForm.controls['url_picture'].hasError('required')">
+                Ce champ est requis
+              </ng-container>
+          </strong>
+            </div>
+        </div>
+
+        <div>
+            <button type="button" class="button cancel">Annuler</button>
+            <button type="submit" class="button save">Enregistrer</button>
+        </div>
+    </form>
+  </div>
+</div>

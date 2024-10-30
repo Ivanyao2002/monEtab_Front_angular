@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="login">
+        <img src="assets/img/logo_etab.jpg" style="width: 80px;height: 80px;" alt="Mon Etab Logo">
+        <h1>Mon Etab</h1>
+        <input type="text" placeholder="Identifiant" value="admin" required>
+        <input type="password" placeholder="Mot de passe" value="admin" required>
+        <button class="btn" (click)="login()">Connexion</button>
+    </div>
+    <div *ngIf="showAlert" class="custom-alert">
+      <p>Connexion réussie !</p>
+      <a routerLink="/">Accéder au tableau de bord</a>
+      <div style="margin-top: 10px; text-align: end"><button (click)="closeAlert()">Fermer</button></div>
+    </div>
+</div>
